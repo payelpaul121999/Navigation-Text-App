@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.palpayel.navigationtestproject.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home"
+
+        >
+        <action
+            android:id="@+id/action_homeFragment_to_nameFragment"
+            app:destination="@id/nameFragment"
+            app:enterAnim="@anim/anim_slide_out_left"
+            app:exitAnim="@anim/push_down_in"
+            app:popEnterAnim="@anim/push_down_out"
+            app:popExitAnim="@anim/push_down_left" />
+        <action
+            android:id="@+id/action_homeFragment_to_termFragment"
+            app:destination="@id/termFragment"
+            app:enterAnim="@anim/anim_slide_out_right"
+            app:exitAnim="@anim/anim_slide_in_right"
+            app:popEnterAnim="@anim/push_down_in"
+            app:popExitAnim="@anim/push_down_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/emailFragment"
+        android:name="com.palpayel.navigationtestproject.EmailFragment"
+        android:label="fragment_email"
+        tools:layout="@layout/fragment_email">
+        <action
+            android:id="@+id/action_emailFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:enterAnim="@anim/anim_slide_in_right"
+            app:exitAnim="@anim/anim_slide_in_left"
+            app:popEnterAnim="@anim/push_down_left"
+            app:popExitAnim="@anim/anim_slide_out_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/nameFragment"
+        android:name="com.palpayel.navigationtestproject.NameFragment"
+        android:label="fragment_name"
+        tools:layout="@layout/fragment_name" >
+        <action
+            android:id="@+id/action_nameFragment_to_emailFragment"
+            app:destination="@id/emailFragment"
+            app:enterAnim="@anim/anim_slide_in_left"
+            app:exitAnim="@anim/push_down_in"
+            app:popEnterAnim="@anim/push_down_out"
+            app:popExitAnim="@anim/push_right_out" />
+    </fragment>
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.palpayel.navigationtestproject.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_termFragment"
+            app:destination="@id/termFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/termFragment"
+        android:name="com.palpayel.navigationtestproject.TermFragment"
+        android:label="fragment_term"
+        tools:layout="@layout/fragment_term">
+        <action
+            android:id="@+id/action_termFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:enterAnim="@anim/anim_slide_out_left"
+            app:exitAnim="@anim/anim_slide_in_right"
+            app:popEnterAnim="@anim/push_down_in"
+            app:popExitAnim="@anim/push_down_left" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_emailFragment"
+        app:destination="@id/emailFragment"
+        app:popUpTo="@id/homeFragment" />
+</navigation>
